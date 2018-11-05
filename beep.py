@@ -12,18 +12,17 @@ GPIO.setup(horn_input, GPIO.IN)
 GPIO.setup(relay_output, GPIO.OUT)
 
 # handle the button event
-def buttonEventHandler_rising (pin):
+def hornEventHandler_rising (pin):
     # turn LED on
-    GPIO.output(LED_output,True)
-    
-def	def buttonEventHandler_falling (pin):
-    # turn LED off
-    GPIO.output(LED_output,False)
-
-
+    GPIO.output(relay_output,True)
+    time.sleep(float(beep_duration))	
+    GPIO.output(relay_output,False)
+    time.sleep(float(beep_delay))
+    GPIO.output(relay_output,True)
+    time.sleep(float(beep_duration))
+    GPIO.output(relay_output,False)
 	
-GPIO.add_event_detect(btn_input, GPIO.RISING, callback=buttonEventHandler_rising) 
-GPIO.add_event_detect(btn_input, GPIO.FALLING, callback=buttonEventHandler_falling)
+GPIO.add_event_detect(btn_input, GPIO.RISING, callback=hornEventHandler_rising) 
  
 try:  
     while True : pass  
