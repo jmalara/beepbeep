@@ -1,4 +1,4 @@
-# beepbeep
+# Beep Beep
 
 The horn on Plymouth Roadrunners are specially made to sound like the Roadrunner character's beep beep sound. However, the user has to press the horn twice in perfect timing to truly emulate the "two beep" Roadrunner sound.
 
