@@ -2,12 +2,14 @@ import time
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 
-btn_input = 4;
-LED_output = 17;
+beep_duration = 0.2;
+beep_delay = 0.15;
+horn_input = 4;
+relay_output = 23;
 
-# GPIO btn_input set up as input.
-GPIO.setup(btn_input, GPIO.IN)
-GPIO.setup(LED_output, GPIO.OUT)
+# Setup input and output
+GPIO.setup(horn_input, GPIO.IN)
+GPIO.setup(relay_output, GPIO.OUT)
 
 # handle the button event
 def buttonEventHandler_rising (pin):
