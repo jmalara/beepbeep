@@ -14,11 +14,13 @@ GPIO.setup(relay_output, GPIO.OUT)
 
 # handle the button event
 def hornEventHandler_rising (pin):
-    # turn LED on
+    # First beep
     GPIO.output(relay_output,True)
     time.sleep(float(beep_duration))	
+    # Delay between beeps
     GPIO.output(relay_output,False)
     time.sleep(float(beep_delay))
+    # Second beep
     GPIO.output(relay_output,True)
     time.sleep(float(beep_duration))
     GPIO.output(relay_output,False)
