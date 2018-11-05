@@ -1,6 +1,7 @@
 import time
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
 
 beep_duration = 0.2;
 beep_delay = 0.15;
