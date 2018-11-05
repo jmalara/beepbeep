@@ -1,5 +1,6 @@
 #!/bin/bash
-
+# Kill current running scripts
+sudo pkill -9 "python"
 cd /home/tc/beepbeep
 
 # Check to see if we have internet connectivity
@@ -12,4 +13,5 @@ if [ $? -eq 0 ]; then
 fi
 
 # Launch script
+echo "Launching script..."
 sudo python beep.py &
