@@ -1,3 +1,5 @@
 cd /home/tc/beepbeep
-git pull
+git fetch --all
+git reset --hard origin/master
+git pull origin master
 sudo python beep.py
