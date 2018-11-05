@@ -1,18 +1,29 @@
-import RPi.GPIO as GPIO
 import time
-import sys
-
+import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(23, GPIO.OUT)
 
-GPIO.output(23, 1)
-time.sleep(float(sys.argv[1]))
-GPIO.output(23, 0)
+btn_input = 4;
+LED_output = 17;
 
-time.sleep(float(sys.argv[2]))
-GPIO.output(23, 1)
+# GPIO btn_input set up as input.
+GPIO.setup(btn_input, GPIO.IN)
+GPIO.setup(LED_output, GPIO.OUT)
 
-time.sleep(float(sys.argv[1]))
-GPIO.output(23, 0)
+# handle the button event
+def buttonEventHandler_rising (pin):
+    # turn LED on
+    GPIO.output(LED_output,True)
+    
+def	def buttonEventHandler_falling (pin):
+    # turn LED off
+    GPIO.output(LED_output,False)
 
-GPIO.cleanup()
+
+	
+GPIO.add_event_detect(btn_input, GPIO.RISING, callback=buttonEventHandler_rising) 
+GPIO.add_event_detect(btn_input, GPIO.FALLING, callback=buttonEventHandler_falling)
+ 
+try:  
+    while True : pass  
+except:
+    GPIO.cleanup()    
