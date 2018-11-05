@@ -1,6 +1,5 @@
 import time
 import RPi.GPIO as GPIO
-GPIO.cleanup()
 GPIO.setmode(GPIO.BCM)
 
 beep_duration = 0.2;
@@ -23,7 +22,7 @@ def hornEventHandler_rising (pin):
     time.sleep(float(beep_duration))
     GPIO.output(relay_output,False)
 	
-GPIO.add_event_detect(btn_input, GPIO.RISING, callback=hornEventHandler_rising) 
+GPIO.add_event_detect(horn_input, GPIO.RISING, callback=hornEventHandler_rising) 
  
 try:  
     while True : pass  
