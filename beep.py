@@ -16,28 +16,27 @@ relay_output = 23;
 GPIO.setup(horn_input, GPIO.IN)
 GPIO.setup(relay_output, GPIO.OUT)
 
-# Handle horn press event
-def hornEventHandler_rising (horn_input):
-    time.sleep(.01)
-    if GPIO.input(horn_input):
-        # First beep
-        print("beep on")
-        GPIO.output(relay_output,True)
-        time.sleep(float(beep_duration))	
-        # Delay between beeps
-        GPIO.output(relay_output,False)
-        print("beep off")
-        time.sleep(float(beep_delay))
-        # Second beep
-        print("beep on")
-        GPIO.output(relay_output,True)
-        time.sleep(float(beep_duration))
-        GPIO.output(relay_output,False)
-        print("beep off")
-	
-GPIO.add_event_detect(horn_input, GPIO.RISING, callback=hornEventHandler_rising, bouncetime=300) 
- 
 try:  
-    while True : pass  
+    while True:            # this will carry on until you hit CTRL+C 
+	time.sleep(.01)
+        if GPIO.input(horn_input): # if port 25 == 1  
+            print "Port 2 is 1/GPIO.HIGH/True - Horn Button Off"  
+            # First beep
+            print("beep on")
+            GPIO.output(relay_output,True)
+            time.sleep(float(beep_duration))	
+            # Delay between beeps
+            GPIO.output(relay_output,False)
+            print("beep off")
+            time.sleep(float(beep_delay))
+            # Second beep
+            print("beep on")
+            GPIO.output(relay_output,True)
+            time.sleep(float(beep_duration))
+            GPIO.output(relay_output,False)
+            print("beep off")
+
+try:  
+    while True : time.sleep(0.05) 
 except:
     GPIO.cleanup()    
