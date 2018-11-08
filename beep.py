@@ -1,6 +1,6 @@
 import time
 import RPi.GPIO as GPIO
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
 # Set beep duration in seconds
@@ -9,8 +9,8 @@ beep_duration = 0.2;
 beep_delay = 0.15;
 
 # Set GPIO pins
-horn_input = 2;
-relay_output = 23;
+horn_input = 3;
+relay_output = 16;
 
 # Setup input and output
 GPIO.setup(horn_input, GPIO.IN)
