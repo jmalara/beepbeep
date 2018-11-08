@@ -16,10 +16,12 @@ relay_output = 16;
 GPIO.setup(horn_input, GPIO.IN)
 GPIO.setup(relay_output, GPIO.OUT)
 
-if GPIO.input(horn_input):
-    print("volt detected");
+if GPIO.input(horn_input):           # if port 25 == 1  
+    print "Port 3 is 1/GPIO.HIGH/True"  
+else:  
+    print "Port 3 is 0/GPIO.LOW/False"  
  
 try:  
-    while True : pass  
+    while True : time.sleep(0.05)  
 except:
     GPIO.cleanup()    
