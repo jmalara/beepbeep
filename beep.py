@@ -9,7 +9,7 @@ beep_duration = 0.2;
 beep_delay = 0.15;
 
 # Set GPIO pins
-horn_input = 4;
+horn_input = 2;
 relay_output = 23;
 
 # Setup input and output
