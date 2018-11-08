@@ -33,7 +33,7 @@ def hornEventHandler_rising (pin):
     GPIO.output(relay_output,False)
     print("beep off")
 	
-GPIO.add_event_detect(horn_input, GPIO.RISING, callback=hornEventHandler_rising) 
+GPIO.add_event_detect(horn_input, GPIO.RISING, callback=hornEventHandler_rising, bouncetime=300) 
  
 try:  
     while True : pass  
