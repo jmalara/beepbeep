@@ -1,27 +1,14 @@
-import time
-import RPi.GPIO as GPIO
-GPIO.setmode(GPIO.BOARD)
-GPIO.setwarnings(False)
-
-# Set beep duration in seconds
-beep_duration = 0.2;
-# Set the delay between the two beeps
-beep_delay = 0.15;
-
-# Set GPIO pins
-horn_input = 3;
-relay_output = 16;
-
-# Setup input and output
-GPIO.setup(horn_input, GPIO.IN)
-GPIO.setup(relay_output, GPIO.OUT)
-
-if GPIO.input(horn_input):           # if port 25 == 1  
-    print "Port 3 is 1/GPIO.HIGH/True"  
-else:  
-    print "Port 3 is 0/GPIO.LOW/False"  
- 
+import RPi.GPIO as GPIO  
+from time import sleep     # this lets us have a time delay (see line 12)  
+GPIO.setmode(GPIO.BCM)     # set up BCM GPIO numbering  
+GPIO.setup(3, GPIO.IN)    # set GPIO 25 as input  
+  
 try:  
-    while True : time.sleep(0.05)  
-except:
-    GPIO.cleanup()    
+    while True:            # this will carry on until you hit CTRL+C  
+        if GPIO.input(3): # if port 25 == 1  
+            print "Port 3 is 1/GPIO.HIGH/True - button pressed"  
+        else:  
+            print "Port 3 is 0/GPIO.LOW/False - button not pressed"  
+        sleep(0.1)         # wait 0.1 seconds  
+  
+except KeyboardInterrupt:  
