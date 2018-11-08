@@ -17,7 +17,9 @@ GPIO.setup(horn_input, GPIO.IN)
 GPIO.setup(relay_output, GPIO.OUT)
 
 time.sleep(.1)
-if GPIO.input(horn_input): # if port 25 == 1  
+if GPIO.input(horn_input): # if port 25 == 1
+    print("off")
+else
     print "Port 2 is 1/GPIO.HIGH/True - Horn Button Off"  
     # First beep
     print("beep on")
